@@ -18,18 +18,31 @@ describe("Pitch", function() {
     });
   });
   describe("partially specified pitch", function() {
-    it("should provide a valid letter", function() {
-      var pitch = new Pitch('A');
+    //Add invalids
+    it("should provide a valid letter and octave 4 when natural", function() {
+      var pitch = new Pitch('a');
       expect(pitch.sPitch).toEqual('A4')
     });
 
-    it("should", function() {
-
+    it("should be correct when sharp", function() {
+      var pitch = new Pitch('a#');
+      expect(pitch.sPitch).toEqual('A#4');
     });
 
-    it("should", function() {
+    it("should be correct when flat", function() {
+      var pitch = new Pitch('ab');
+      expect(pitch.sPitch).toEqual('Ab4');
+    });
 
-    })
+    it("should be correct when double sharp", function() {
+      var pitch = new Pitch('ax');
+      expect(pitch.sPitch).toEqual('A##4');
+    });
+
+    it("should be correct when double flat", function() {
+      var pitch = new Pitch('abb');
+      expect(pitch.sPitch).toEqual('Abb4');
+    });
   });
   describe("specified pitch", function() {
     var specifiedPitch = new Pitch('Dbb7');
